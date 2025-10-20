@@ -1,0 +1,277 @@
+:root{
+  /* Purple palette */
+  --gu-primary: #6E3482;
+  --gu-primary-600: #49225B;
+  --gu-accent: #A56ABD;
+  --gu-dark: #49225B;
+  --gu-surface: #ffffff;
+  --gu-bg: #F5EBFA;
+  --gu-muted: #6b7280;
+  --gu-mist: #E7DBEF;
+  --gu-soft: rgba(73,34,91,0.08);
+  --hero-img: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop');
+}
+
+/* Primary button (purple) */
+.btn-primary{
+  --bs-btn-bg: var(--gu-primary);
+  --bs-btn-border-color: var(--gu-primary);
+  --bs-btn-hover-bg: var(--gu-primary-600);
+  --bs-btn-hover-border-color: var(--gu-primary-600);
+  color: #fff;
+}
+
+/* Navbar uses white surface with subtle shadow */
+.navbar{
+  --bs-navbar-color: var(--gu-surface);
+  --bs-navbar-hover-color: var(--gu-surface);
+  --bs-navbar-brand-color: var(--gu-surface);
+  --bs-navbar-brand-hover-color: var(--gu-surface);
+  background-color: var(--gu-primary-600) !important;
+  box-shadow: 0 6px 18px var(--gu-soft);
+}
+
+/* Transparent navbar for the landing so the hero feels integrated */
+.navbar-hero{
+  background-color: var(--gu-primary-600) !important;
+  box-shadow: 0 6px 18px var(--gu-soft) !important;
+  z-index: 1000;
+}
+.navbar-hero .navbar-brand,
+.navbar-hero .nav-link{
+  color: var(--gu-surface) !important;
+}
+
+.card{
+  border: none;
+  border-radius: 12px;
+  background: var(--gu-surface);
+  box-shadow: 0 8px 24px var(--gu-soft);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(73,34,91,.12) }
+
+html, body, #root{
+  min-height: 100vh;
+}
+body{
+  background-color: var(--gu-bg);
+  color: var(--gu-dark);
+}
+
+/* Form controls */
+.form-control, .form-select{
+  border-radius: 10px;
+  border-color: var(--gu-mist);
+}
+.form-control:focus, .form-select:focus{
+  border-color: var(--gu-primary);
+  box-shadow: 0 0 0 .2rem rgba(73,34,91,.15);
+}
+
+/* Landing hero section: full-bleed wrapper + inner layout */
+.hero-bleed{
+  width: 100%;
+  background: linear-gradient(180deg, #E7DBEF 0%, #F5EBFA 100%);
+  padding: 2.25rem 0;
+}
+.hero-landing{
+  min-height: 68vh;
+  display: flex;
+  align-items: center;
+  color: var(--gu-dark);
+  padding: 1.5rem 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.hero-landing .hero-left{ padding: 0.75rem 1.25rem }
+.hero-landing .hero-right{ display:flex; align-items:center; justify-content:center }
+.hero-media{
+  width: 100%;
+  max-width: 640px;
+  height: 400px;
+  border-radius: 14px;
+  background-image: linear-gradient(180deg, rgba(73,34,91,0.08), rgba(73,34,91,0.02)), var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(73,34,91,0.08);
+}
+
+.hero-landing h1{ font-weight:700; letter-spacing:0.2px }
+.hero-landing p{ color: var(--gu-muted); margin-top: .6rem }
+
+/* Desktop tweaks: taller hero, bigger media, tighter padding */
+@media (min-width: 992px){
+  .hero-bleed{ padding: 3rem 0; }
+  .hero-landing{ min-height: 76vh; padding: 1.25rem 0; }
+  .hero-landing .hero-left{ padding: 0.5rem 1rem }
+  .hero-media{ max-width: 720px; height: 460px; border-radius: 16px }
+}
+
+/* Featured band + divider */
+.section-featured{
+  background: var(--gu-mist);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px var(--gu-soft);
+}
+.section-divider{
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(73,34,91,.18), transparent);
+  margin: 1rem 0 1.25rem 0;
+  border: 0;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Section title */
+.section-title{ display:flex; align-items:center; gap:.6rem; margin-bottom:.5rem }
+.section-title .accent{ width:64px; height:4px; border-radius:2px; background: linear-gradient(90deg, var(--gu-primary), var(--gu-primary-600)) }
+
+.cta-group .btn{ min-width: 160px }
+.btn-outline-primary{
+  color: var(--gu-primary);
+  border-color: var(--gu-primary);
+}
+
+/* Button micro-interactions */
+.btn-primary{ box-shadow: 0 6px 16px rgba(73,34,91,0.18) }
+.btn-primary:hover{ transform: translateY(-1px) }
+.btn-primary:active{ transform: translateY(0) }
+.btn-outline-primary:hover{ background: var(--gu-mist); border-color: var(--gu-primary-600); color: var(--gu-primary-600) }
+
+/* Prominent Login button styling for navbar */
+.btn-login{
+  --bs-btn-color: var(--gu-primary-600);
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #ffffff;
+  --bs-btn-hover-color: var(--gu-primary-600);
+  --bs-btn-hover-bg: var(--gu-mist);
+  --bs-btn-hover-border-color: var(--gu-mist);
+  --bs-btn-focus-shadow-rgb: 73,34,91;
+  color: var(--gu-primary-600);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  border-radius: 999px;
+  padding-inline: 0.95rem;
+  padding-block: 0.4rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+  box-shadow: 0 6px 16px rgba(73,34,91,0.15);
+  transition: box-shadow .2s ease, transform .2s ease, background-color .2s ease, color .2s ease;
+}
+.btn-login:hover{ transform: translateY(-1px) }
+.btn-login:active{ transform: translateY(0) }
+.btn-login:focus{ outline: none; box-shadow: 0 0 0 .2rem rgba(73,34,91,.25) }
+
+/* Ensure readability on dark navbars */
+.navbar-dark .btn-login{ color: var(--gu-primary-600) }
+
+/* Trust strip */
+.trust-strip{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--gu-soft);
+  padding: .75rem 1rem;
+}
+.trust-strip .brand{ color: var(--gu-muted); font-weight:600; opacity:.8; letter-spacing:.5px }
+
+/* Testimonials */
+.testimonial-card .avatar{ width:40px; height:40px; border-radius:50%; background: var(--gu-mist) }
+.testimonial-card .stars{ color: #f1b80b }
+.testimonial-card .quote{ color: var(--gu-dark) }
+
+/* Footer */
+.site-footer{
+  background: var(--gu-primary-600);
+  color: #fff;
+  border-radius: 12px;
+}
+
+/* Auth (Login/Register) page */
+.auth-wrap{ min-height: 100vh; background: linear-gradient(180deg, var(--gu-bg) 0%, var(--gu-mist) 100%) }
+.auth-left{ position: relative; padding: 2rem; }
+.auth-left::before{
+  content: ""; position: absolute; inset: 0; border-radius: 16px;
+  background: radial-gradient(60% 60% at 20% 20%, rgba(165,106,189,.25), transparent 60%),
+              radial-gradient(50% 50% at 80% 10%, rgba(110,52,130,.18), transparent 55%);
+  z-index: -1;
+}
+.auth-card{ border: none; border-radius: 16px; box-shadow: 0 24px 48px rgba(73,34,91,.12) }
+
+/* Price accent */
+.service-price{ color: var(--gu-primary); font-weight:700 }
+
+/* Admin sidebar styles (left nav rail) - purple gradient */
+.admin-sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--gu-primary-600) 0%, var(--gu-primary) 100%);
+  color: #fff;
+  z-index: 1100;
+}
+.admin-sidebar .sidebar-logo{ background: #fff }
+.admin-sidebar .admin-link{ color: rgba(255,255,255,0.85); text-decoration: none; border-radius: 8px }
+.admin-sidebar .admin-link .link-label{ font-size: 0.95rem }
+.admin-sidebar .admin-link svg{ color: rgba(255,255,255,0.9) }
+.admin-sidebar .admin-link.active{ background: rgba(255,255,255,0.08); color: #fff }
+
+/* ensure main content accounts for sidebar */
+@media (min-width: 768px){ .admin-layout > .admin-main { margin-left: 240px } }
+@media (max-width: 767px){ .admin-sidebar{ width: 64px } .admin-sidebar .link-label{ display: none } .admin-layout > .admin-main { margin-left: 64px } }
+
+/* Collapsible admin sidebar */
+.admin-layout.admin-collapsed .admin-sidebar{ width: 64px }
+.admin-layout.admin-collapsed .admin-sidebar .link-label{ display: none }
+.admin-layout.admin-collapsed .admin-sidebar .brand-title{ display: none }
+.admin-layout.admin-collapsed > .admin-main{ margin-left: 64px }
+.admin-sidebar .sidebar-toggle{ padding: .2rem .4rem; }
+
+/* Value prop cards */
+.value-card .card-body{ padding: 1.4rem }
+.value-card .card-title{ color: var(--gu-dark); font-weight:600 }
+.value-card .card-text{ color: var(--gu-muted) }
+
+/* Search area */
+.home-search .card{ padding: .8rem }
+.home-search .form-control, .home-search .form-select{
+  border-radius: 8px;
+  border: 1px solid rgba(11,11,11,0.06);
+}
+
+.featured-title{
+  display:flex; align-items:end; gap: .75rem; margin-bottom: .6rem
+}
+.featured-title h5{ margin:0; font-weight:600 }
+.featured-title .accent{ height:4px; width:80px; background: var(--gu-primary); border-radius:2px }
+
+/* Admin sidebar styles (left nav rail) - keep but recolor */
+.admin-sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--gu-dark) 0%, rgba(11,11,11,0.9) 100%);
+  color: #fff;
+  z-index: 1100;
+}
+.admin-sidebar .sidebar-logo{ background: #fff }
+.admin-sidebar .admin-link{ color: rgba(255,255,255,0.85); text-decoration: none; border-radius: 8px }
+.admin-sidebar .admin-link .link-label{ font-size: 0.95rem }
+.admin-sidebar .admin-link svg{ color: rgba(255,255,255,0.9) }
+.admin-sidebar .admin-link.active{ background: rgba(255,255,255,0.06); color: #fff }
+
+/* ensure main content accounts for sidebar */
+@media (min-width: 768px){ .admin-layout > div { margin-left: 240px } }
+@media (max-width: 767px){ .admin-sidebar{ width: 64px } .admin-sidebar .link-label{ display: none } .admin-layout > div { margin-left: 64px } }
+

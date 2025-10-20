@@ -1,0 +1,12 @@
+:root {
+  --gu-ink: #49225B;
+  --gu-charcoal: #6E3482;
+  --gu-muted-gray: #A56ABD;
+  --gu-mist: #E7DBEF;
+  --gu-ivory: #F5EBFA;
+}
+
+body {
+  background-color: var(--gu-ivory);
+  color: var(--gu-ink);
+}
